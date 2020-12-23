@@ -1,0 +1,23 @@
+---
+title: "Untitled"
+author: "Ahmad Al-Dhalaan"
+date: "8/10/2020"
+output: html_document
+---
+
+```{r}
+file_names <- list.files(path = ".", pattern = "csv")
+```
+
+```{r}
+for(i in 1:length(file_names)){
+  file <- read.csv(file_names[i])
+  file <- file[,c(5:7,12,18,26,37)]
+  name <- paste("on_time", i,".csv", sep = '')
+  write.csv(file, name, row.names = FALSE, na = 'NULL')
+}
+```
+
+
+
+
